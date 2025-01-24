@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Um Atheer Beauty</title>
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5dc; /* اللون البيج */
+      color: #f5f5dc; /* لون النص بيج */
+    }
+
+    header {
+      background-color: #000; /* اللون الأسود */
+      color: #f5f5dc; /* لون النص بيج */
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      width: 15vw; /* الحجم سيكون 15% من عرض الشاشة */
+      height: auto;
+      max-width: 150px; /* الحد الأقصى لحجم اللوجو */
+      margin-bottom: 15px; /* مسافة أسفل اللوجو */
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 1.2em;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.1em;
+    }
+
+    .language-switch a {
+      color: #f5f5dc; /* تغيير لون النص إلى بيج */
+      text-decoration: none;
+      font-size: 1.1em;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff; /* خلفية بيضاء */
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #333; /* لون النص الافتراضي داخل المحتوى */
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .image-gallery .image-container {
+      position: relative;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-gallery .service-title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      text-align: center;
+      background-color: #000; /* اللون الأسود */
+      color: #f5f5dc; /* لون النص بيج */
+      text-decoration: none;
+      padding: 15px;
+      margin: 20px auto;
+      border-radius: 50px;
+      font-size: 1.2em;
+      font-weight: bold;
+      width: 80%;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #444; /* رمادي داكن */
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #000; /* اللون الأسود */
+      color: #f5f5dc; /* لون النص بيج */
+      font-size: 0.9em;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .social {
+      margin-top: 10px;
+    }
+
+    .social a {
+      color: #f5f5dc; /* لون النص بيج */
+      text-decoration: none;
+      font-size: 1em;
+      margin: 0 10px;
+    }
+
+    /* تحسينات ليتناسب مع الشاشات الصغيرة */
+    @media screen and (max-width: 768px) {
+      header img {
+        width: 120px; /* تقليل حجم اللوجو على الأجهزة الصغيرة */
+      }
+
+      header h1 {
+        font-size: 2em; /* تصغير حجم النص */
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .whatsapp-btn {
+        width: 90%; /* جعل الأزرار أكبر على الجوال */
+        font-size: 1.1em;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header img {
+        width: 100px; /* تقليل الحجم بشكل أكبر على الشاشات الصغيرة جدًا */
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .whatsapp-btn {
+        width: 100%; /* الأزرار تأخذ عرض الشاشة */
+        font-size: 1em;
+      }
+    }
+
+    /* تعديل لون النص الخاص بساعات العمل */
+    #working-hours-title {
+      color: #000; /* اللون الأسود */
+    }
+
+    /* نافذة منبثقة لتنسيق عرض ساعات العمل */
+    .popup-content {
+      background-color: #f5f5dc; /* اللون البيج */
+      color: #000; /* اللون الأسود للنص */
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .popup-content button {
+      background-color: #000; /* اللون الأسود */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup-content button:hover {
+      background-color: #444; /* رمادي داكن */
+    }
+
+    /* نمط النافذة المنبثقة */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+</style>
+<script>
+    function changeLanguage(language) {
+        if (language === 'ar') {
+            document.getElementById('services-title').innerHTML = 'خدماتنا';
+            document.getElementById('location-title').innerHTML = 'موقعنا';
+            document.getElementById('contact-title').innerHTML = 'للتواصل';
+            document.getElementById('working-hours-title').innerHTML = 'ساعات العمل';
+        } else if (language === 'en') {
+            document.getElementById('services-title').innerHTML = 'Our Services';
+            document.getElementById('location-title').innerHTML = 'Our Location';
+            document.getElementById('contact-title').innerHTML = 'Contact Us';
+            document.getElementById('working-hours-title').innerHTML = 'Working Hours';
+        }
+    }
+
+    function showWorkingHours() {
+        document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+</head>
+<body>
+<header>
+<div class="language-switch">
+<a href="javascript:void(0)" onclick="changeLanguage('ar')">العربية</a> |  
+<a href="javascript:void(0)" onclick="changeLanguage('en')">English</a>
+</div>
+<img src="logo.jfif" alt="Logo">
+<h1 id="page-title">Um Atheer Beauty</h1>
+</header>
+
+<div class="container">
+<h2 id="services-title">خدماتنا</h2>
+<div class="image-gallery">
+<div class="image-container">
+<img src="5.jfif" alt="خدمة 5">
+<div class="service-title">Hair Services</div>
+</div>
+<div class="image-container">
+<img src="1.jfif" alt="خدمة 1">
+<div class="service-title">Facial</div>
+</div>
+<div class="image-container">
+<img src="3.jfif" alt="خدمة 3">
+<div class="service-title">Eyelashes</div>
+</div>
+<div class="image-container">
+<img src="4.jfif" alt="خدمة 4">
+<div class="service-title">Nails Services</div>
+</div>
+<div class="image-container">
+<img src="2.jfif" alt="خدمة 2">
+<div class="service-title">Henna</div>
+</div>
+</div>
+<h2 id="location-title">موقعنا</h2>
+<a href="https://goo.gl/maps/bokKrgdH4nXRsEnE6" target="_blank">
+  <img src="6.jfif" alt="موقعنا على الخريطة" style="width:40%; border-radius: 10px;">
+</a>
+
+<h2 id="contact-title">للتواصل</h2>
+<a href="https://wa.me/9727933" target="_blank">
+  <img src="7.jfif" alt="تواصل عبر WhatsApp" style="width:40%; border-radius: 10px; margin-top: 20px;">
+</a>
+
+<h2 id="working-hours-title">ساعات العمل</h2>
+<a href="javascript:void(0)" onclick="showWorkingHours()">
+<img src="8.jfif" alt="ساعات العمل" style="width:40%; border-radius: 10px; margin-top: 20px;">
+</a>
+</div>
+
+<div id="popup" class="popup">
+<div class="popup-content">
+<h3>ساعات العمل: 9AM - 9PM</h3>
+<button onclick="closePopup()">إغلاق</button>
+</div>
+</div>
+
+<footer>
+<div class="social">
+<a href="https://instagram.com/umatheer333" target="_blank" id="instagram">تابعنا على إنستغرام: @umatheer333</a>
+</div>
+</footer>
+</body>
+</html>
+
+
+ 
+
+
+ 
+
+
